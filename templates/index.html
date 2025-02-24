@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <title>Cafe&Wifi API</title>
+  </head>
+  <body>
+    <a href="{{ url_for('get_cafe') }}"
+      ><button class="all_cafes">All Cafes</button>
+    </a>
+    <a href="{{ url_for('add_cafe') }}"
+      ><button class="add_cafe">Add Cafe</button>
+    </a>
+  </body>
+</html>

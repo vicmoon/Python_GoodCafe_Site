@@ -1,0 +1,22 @@
+body {
+  margin-top: 100px;
+  text-align: center;
+  background-color: #2d336b;
+  color: #a9b5df;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 30px;
+}
+table {
+  margin: 0 auto;
+}
+
+a {
+  color: #fff2f2;
+}
+
+ul {
+  text-align: center;
+}
+li {
+  list-style-type: none;
+}

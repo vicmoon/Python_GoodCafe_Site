@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <title>Cafe&Wifi API</title>
+  </head>
+  <body>
+    <h1>All Cafes</h1>
+
+    <!-- Add Cafe Button -->
+    <a href="{{ url_for('add_cafe') }}">
+      <button class="add_cafe">Add Cafe</button>
+    </a>
+
+    <table class="cafes" border="1">
+      <tr>
+        <th>Name</th>
+        <th>Map</th>
+        <th>Img</th>
+        <th>Location</th>
+        <th>Seats</th>
+        <th>Toilet</th>
+        <th>Wifi</th>
+        <th>Sockets</th>
+        <th>Action</th>
+      </tr>
+
+      {% for cafe in cafes %}
+      <tr>
+        <td>{{ cafe.name }}</td>
+        <td><a href="{{ cafe.map_url }}" target="_blank">Map</a></td>
+        <td><a href="{{ cafe.img_url }}" target="_blank">Img</a></td>
+        <td>{{ cafe.location }}</td>
+        <td>{{ cafe.seats }}</td>
+        <td>{{ 'Yes' if cafe.has_toilet else 'No' }}</td>
+        <td>{{ 'Yes' if cafe.has_wifi else 'No' }}</td>
+        <td>{{ 'Yes' if cafe.has_sockets else 'No' }}</td>
+        <td>
+          <form
+            action="{{ url_for('delete_cafe', cafe_id=cafe.id) }}"
+            method="POST"
+          >
+            <button
+              type="submit"
+              class="delete_cafe"
+              onclick="return confirm('Are you sure?')"
+            >
+              Delete
+            </button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+
+    <!-- Pagination Controls -->
+    <div class="pagination">
+      {% if pagination.has_prev %}
+      <a href="{{ url_for('get_cafe', page=pagination.prev_num) }}">Previous</a>
+      {% endif %}
+
+      <span>Page {{ pagination.page }} of {{ pagination.pages }}</span>
+
+      {% if pagination.has_next %}
+      <a href="{{ url_for('get_cafe', page=pagination.next_num) }}">Next</a>
+      {% endif %}
+    </div>
+  </body>
+</html>

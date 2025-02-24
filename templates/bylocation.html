@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafes</title>
+  </head>
+  <body>
+    <h1>Cafes in {{ request.args.get('location') }}</h1>
+
+    {% if cafes %}
+    <ul>
+      {% for cafe in cafes %}
+      <li>{{ cafe.name }} - {{ cafe.address }}</li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>No cafes found in this location.</p>
+    {% endif %}
+  </body>
+</html>
