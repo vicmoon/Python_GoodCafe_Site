@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
     <title>Cafes</title>
   </head>
   <body>
@@ -11,11 +15,12 @@
     {% if cafes %}
     <ul>
       {% for cafe in cafes %}
-      <li>{{ cafe.name }} - {{ cafe.address }}</li>
+      <li>{{ cafe.name }}</li>
       {% endfor %}
     </ul>
     {% else %}
     <p>No cafes found in this location.</p>
     {% endif %}
+    <a href="{{ url_for('home') }}"><button class="all_cafes">Back</button> </a>
   </body>
 </html>

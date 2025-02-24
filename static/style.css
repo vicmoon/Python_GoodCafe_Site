@@ -48,3 +48,15 @@ button:hover {
   align-items: center;
   margin-bottom: 10px;
 }
+
+/* Increase checkbox size */
+input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* Change checkbox color when checked */
+input[type='checkbox']:checked {
+  accent-color: #4caf50; /* Change to green */
+}
