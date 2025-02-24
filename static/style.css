@@ -41,3 +41,10 @@ button:hover {
 .heading {
   color: blueviolet;
 }
+
+.new_place {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
