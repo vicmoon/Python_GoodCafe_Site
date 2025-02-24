@@ -6,7 +6,7 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='style.css') }}"
     />
-    <title>Cafe&Wifi API</title>
+    <title>Cafe&Wifi</title>
   </head>
   <body>
     <section>
@@ -16,7 +16,7 @@
       </form>
     </section>
     <table class="cafes" border="1">
-      <tr>
+      <tr class="heading">
         <th>Name</th>
         <th>Map</th>
         <th>Img</th>
@@ -66,5 +66,6 @@
       <a href="{{ url_for('get_cafe', page=pagination.next_num) }}">Next</a>
       {% endif %}
     </div>
+    <a href="{{ url_for('home') }}"><button class="all_cafes">Back</button> </a>
   </body>
 </html>

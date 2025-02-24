@@ -20,3 +20,24 @@ ul {
 li {
   list-style-type: none;
 }
+
+input {
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 15px;
+  border-radius: 30px;
+  background-color: aquamarine;
+}
+
+button:hover {
+  background-color: #2d336b;
+  border-color: blueviolet;
+  color: #fff2f2;
+}
+.heading {
+  color: blueviolet;
+}
