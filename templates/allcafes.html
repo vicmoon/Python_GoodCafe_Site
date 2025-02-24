@@ -9,13 +9,12 @@
     <title>Cafe&Wifi API</title>
   </head>
   <body>
-    <h1>All Cafes</h1>
-
-    <!-- Add Cafe Button -->
-    <a href="{{ url_for('add_cafe') }}">
-      <button class="add_cafe">Add Cafe</button>
-    </a>
-
+    <section>
+      <form action="{{ url_for('search') }}" method="GET">
+        <input type="text" name="location" placeholder="Enter location" />
+        <button type="submit">Search</button>
+      </form>
+    </section>
     <table class="cafes" border="1">
       <tr>
         <th>Name</th>
@@ -28,12 +27,11 @@
         <th>Sockets</th>
         <th>Action</th>
       </tr>
-
       {% for cafe in cafes %}
       <tr>
         <td>{{ cafe.name }}</td>
-        <td><a href="{{ cafe.map_url }}" target="_blank">Map</a></td>
-        <td><a href="{{ cafe.img_url }}" target="_blank">Img</a></td>
+        <td><a href="{{ cafe.map_url }}" target="_blank">Map </a></td>
+        <td><a href="{{ cafe.img_url }}" target="_blank">Img </a></td>
         <td>{{ cafe.location }}</td>
         <td>{{ cafe.seats }}</td>
         <td>{{ 'Yes' if cafe.has_toilet else 'No' }}</td>
@@ -56,7 +54,6 @@
       </tr>
       {% endfor %}
     </table>
-
     <!-- Pagination Controls -->
     <div class="pagination">
       {% if pagination.has_prev %}
